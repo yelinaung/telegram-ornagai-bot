@@ -1,0 +1,23 @@
+{
+  "name": "telegram-ornagai-bot",
+  "version": "1.0.0",
+  "description": "A Telegram bot which serves you as an English <-> Myanmar Dictionary",
+  "main": "index.js",
+  "dependencies": {
+    "node-telegram-bot-api": "0.12.1",
+    "request" : "2.61.0",
+    "sprintf-js" : "1.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "telegram",
+    "myanmar",
+    "ornagai",
+    "bot",
+    "dictionary"
+  ],
+  "author": "YLA <me@yelinaung.com>",
+  "license": "MIT"
+}
