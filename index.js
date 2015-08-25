@@ -26,9 +26,7 @@ bot.on('text', function(msg) {
     });
   } else if (msg.text == '/help') {
     bot.sendMessage(chatId, help);
-  } else {
-    bot.sendMessage(chatId, "hello");
-  }
+  } 
 
   counter++;
   console.log("Total request " + counter);
