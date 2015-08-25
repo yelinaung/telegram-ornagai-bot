@@ -3,22 +3,24 @@ var request = require('request');
 var s = require('sprintf-js');
 var rabbit = require('./rabbit.min');
 var token = process.env.TELEGRAM_ORNAGAI_TOKEN;
-var bot = new TelegramBot(token, {polling: true});
+var bot = new TelegramBot(token, {
+  polling: true
+});
 
-var help =  "အသုံးပြုပုံကတော့ \n" + 
-"'/e hello' ဆိုရင် 'hello' ရဲ့ အဓိပ္ပါယ် ကို ပ​ြပေးပါတယ်။\n" + 
-"'/help' ဆိုရင် အခု message ကို ပြန်ပြပါတယ်။\n"  + 
-"Disclaimer : The data is based on http://ornagai.com";
+var help = "အသုံးပြုပုံကတော့ \n" +
+  "'/e hello' ဆိုရင် 'hello' ရဲ့ အဓိပ္ပါယ် ကို ပ​ြပေးပါတယ်။\n" +
+  "'/help' ဆိုရင် အခု message ကို ပြန်ပြပါတယ်။\n" +
+  "Disclaimer : The data is based on http://ornagai.com";
 
 var counter = 0;
 
-bot.on('text', function (msg) {
+bot.on('text', function(msg) {
   var chatId = msg.chat.id;
 
   en2mm = /\/e */.test(msg.text);
 
   if (en2mm) {
-    x = msg.text.replace(/\/e */,"").trim();
+    x = msg.text.replace(/\/e */, "").trim();
     search(x, function(def) {
       bot.sendMessage(chatId, def);
     });
@@ -44,7 +46,7 @@ function search(keyword, fn) {
           rawResult[0].state,
           rawResult[0].def)
         fn(rabbit.zg2uni(properResult));
-      } else if (rawResult.length > 1){
+      } else if (rawResult.length > 1) {
         for (var i = 0; i < 3; i++) {
           properResult = s.sprintf(
             "%1$s\n%2$s\n%3$s\n-----",
@@ -52,7 +54,7 @@ function search(keyword, fn) {
             rawResult[i].state,
             rawResult[i].def)
           fn(rabbit.zg2uni(properResult));
-        } 
+        }
       } else {
         fn("Sorry. No meaning found for " + keyword);
       }
