@@ -17,6 +17,7 @@ $ git clone https://github.com/yelinaung/telegram-ornagai-bot
 $ cd telegram-ornagai-bot
 $ npm install
 $ export TELEGRAM_ORNAGAI_TOKEN="your token" && node index.js
+```
 
 ## License
 

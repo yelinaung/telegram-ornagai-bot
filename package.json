@@ -18,6 +18,11 @@
     "bot",
     "dictionary"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yelinaung/telegram-ornagai-bot.git"
+  },
+  "homepage": "https://github.com/yelinaung/telegram-ornagai-bot.git",
   "author": "YLA <me@yelinaung.com>",
   "license": "MIT"
 }
