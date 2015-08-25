@@ -37,7 +37,6 @@ bot.on('text', function(msg) {
 function search(keyword, fn) {
   var url = 'http://ornagai.com/search/' + keyword;
   request(url, function(error, response, body) {
-    console.log("status " + response.statusCode);
     if (!error && response.statusCode == 200) {
       rawResult = JSON.parse(body);
       if (rawResult.length == 1) {
@@ -49,7 +48,6 @@ function search(keyword, fn) {
         fn(rabbit.zg2uni(properResult));
       } else if (rawResult.length > 1) {
         for (var i = 0; i < 3; i++) {
-          console.log(rawResult[i]);
           properResult = s.sprintf(
             "%1$s\n%2$s\n%3$s",
             rawResult[i].Word,
